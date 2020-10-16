@@ -2,5 +2,7 @@
     <qresource prefix="/">
         <file>images/tbdh.png</file>
         <file>images/find.png</file>
+        <file>images/save.png</file>
+        <file>images/pattern.png</file>
     </qresource>
 </RCC>

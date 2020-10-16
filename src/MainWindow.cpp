@@ -14,9 +14,9 @@ MainWindow::MainWindow(QWidget *parent)
 
     QMainWindow::showMaximized();
 
-    //widget_chme = new ChatmapperExport(this);
-    widget_chme = new ChatmapperExport();
-    widget_chme->show();
+    widgetChatmapper = new ChatmapperExport(this);
+    //widget_chme = new ChatmapperExport();
+    widgetChatmapper->show();
 }
 
 MainWindow::~MainWindow()
@@ -24,12 +24,12 @@ MainWindow::~MainWindow()
     delete ui;
 }
 
-int MainWindow::GetWindowWidth()
+int MainWindow::getWindowWidth()
 {
     return QGuiApplication::primaryScreen()->availableGeometry().width();
 }
 
-int MainWindow::GetWindowHeight()
+int MainWindow::getWindowHeight()
 {
     return QGuiApplication::primaryScreen()->availableGeometry().height();
 }

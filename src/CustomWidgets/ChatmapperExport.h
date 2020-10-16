@@ -3,8 +3,12 @@
 
 #include <QWidget>
 #include <QDebug>
-
+#include <QPainter>
+#include <QPalette>
+#include <QFileDialog>
 #include <MainWindow.h>
+
+#include "Data/Json.h"
 
 namespace Ui {
 class ChatmapperExport;
@@ -18,10 +22,18 @@ public:
     explicit ChatmapperExport(QWidget *parent = nullptr);
     ~ChatmapperExport();
 
+protected:
+    void paintEvent(QPaintEvent *event);
+
+private slots:
+    void browserFile();
+    void exportJsonFile();
+
 private:
     Ui::ChatmapperExport *ui;
 
-    MainWindow *Parent;
+    MainWindow *parent_;
+
 };
 
 #endif // CHATMAPPEREXPORT_H

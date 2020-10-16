@@ -10,11 +10,17 @@ CONFIG += c++11
 
 SOURCES += \
     CustomWidgets/ChatmapperExport.cpp \
+    Data/Actor.cpp \
+    Data/Conversation.cpp \
+    Data/Json.cpp \
     main.cpp \
     MainWindow.cpp
 
 HEADERS += \
     CustomWidgets/ChatmapperExport.h \
+    Data/Actor.h \
+    Data/Conversation.h \
+    Data/Json.h \
     MainWindow.h
 
 FORMS += \

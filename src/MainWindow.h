@@ -19,12 +19,12 @@ public:
     MainWindow(QWidget *parent = nullptr);
     ~MainWindow();
 
-    static int GetWindowWidth();
-    static int GetWindowHeight();
+    static int getWindowWidth();
+    static int getWindowHeight();
 
 private:
     Ui::MainWindow *ui;
 
-    ChatmapperExport *widget_chme;
+    ChatmapperExport *widgetChatmapper;
 };
 #endif // MAINWINDOW_H
