@@ -15,7 +15,7 @@
 class Json
 {
 public:
-    Json(const QString filePath);
+    Json(const QString& filePath);
     ~Json();
 
 private:
@@ -25,8 +25,9 @@ private:
     std::vector<Conversation> conversations_;
 
     void read();
-    void readActors(QJsonValue &value);
-    void readConversations(QJsonValue &value);
+    void readActors(QJsonValue& value);
+    void readConversations(QJsonValue& value);
+    void readNodes(QJsonValue& value);
 //    void write(QJsonObject& json) const;
     void testing();
 };

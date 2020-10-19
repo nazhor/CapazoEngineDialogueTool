@@ -6,7 +6,7 @@
 class Actor
 {
 public:
-    Actor(const int id, const QString name);
+    Actor(const int id, const QString& name);
     ~Actor();
 
     int getId() const;

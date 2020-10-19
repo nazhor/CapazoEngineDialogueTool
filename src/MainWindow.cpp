@@ -14,8 +14,7 @@ MainWindow::MainWindow(QWidget *parent)
 
     QMainWindow::showMaximized();
 
-    widgetChatmapper = new ChatmapperExport(this);
-    //widget_chme = new ChatmapperExport();
+    widgetChatmapper = new ChatmapperExport(this);    
     widgetChatmapper->show();
 }
 

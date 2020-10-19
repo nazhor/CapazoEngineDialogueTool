@@ -1,6 +1,6 @@
 #include "Json.h"
 
-Json::Json(const QString filePath)
+Json::Json(const QString& filePath)
 {
     qInfo() << "-- create json object --";
     filePath_ = filePath;
@@ -30,10 +30,10 @@ void Json::read()
 
 }
 
-void Json::readActors(QJsonValue &value)
+void Json::readActors(QJsonValue& value)
 {
     QJsonArray actorsArray = value["Actors"].toArray();
-    foreach (const QJsonValue & actorValue, actorsArray)
+    foreach (const QJsonValue& actorValue, actorsArray)
     {
         QJsonObject obj = actorValue.toObject();
         int id = obj.value("ID").toInt();
@@ -44,17 +44,38 @@ void Json::readActors(QJsonValue &value)
     }
 }
 
-void Json::readConversations(QJsonValue &value)
+void Json::readConversations(QJsonValue& value)
 {
     QJsonArray conversationsArray = value["Conversations"].toArray();
-    foreach (const QJsonValue & conversationValue, conversationsArray)
+    foreach (const QJsonValue& conversationValue, conversationsArray)
     {
-        QJsonObject obj = conversationValue.toObject();
-        int id = obj.value("ID").toInt();
-        QJsonObject fieldsObj = obj.value("Fields").toObject();
+        QJsonObject convObj = conversationValue.toObject();
+        int id = convObj.value("ID").toInt() - 1; //Chatmapper conversation starts from 1
+        QJsonObject fieldsObj = convObj.value("Fields").toObject();
         QString title = fieldsObj.value("Title").toString();
+        QJsonValue dialogNodeValues = convObj.value("DialogNodes");
+        readNodes(dialogNodeValues);
+
         Conversation c(id, title);
         conversations_.push_back(c);
+
+    }
+}
+
+void Json::readNodes(QJsonValue& value)
+{
+    qDebug() << "-- nodes --";
+    QJsonArray dialogNodesArray = value.toArray();
+    foreach (const QJsonValue& dialogNodeValue, dialogNodesArray)
+    {
+        QJsonObject nodeObj = dialogNodeValue.toObject();
+        int id = nodeObj.value("ID").toInt();
+        if (id > 0) //The first Chatmapper conversation node has no use to us
+        {
+            QJsonObject fieldsObj = nodeObj.value("Fields").toObject();
+            QString title = fieldsObj.value("Title").toString();
+            qDebug() << "id: " << id << "_" << "title: " << title;
+        }
     }
 }
 

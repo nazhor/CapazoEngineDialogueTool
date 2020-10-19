@@ -13,6 +13,7 @@ SOURCES += \
     Data/Actor.cpp \
     Data/Conversation.cpp \
     Data/Json.cpp \
+    Data/Node.cpp \
     main.cpp \
     MainWindow.cpp
 
@@ -21,6 +22,7 @@ HEADERS += \
     Data/Actor.h \
     Data/Conversation.h \
     Data/Json.h \
+    Data/Node.h \
     MainWindow.h
 
 FORMS += \
