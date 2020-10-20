@@ -1,9 +1,11 @@
 #include "Node.h"
 
-Node::Node(const int id,
-           const int actorId,
+Node::Node(
+           const int id,
            const QString& destinationConvIds,
            const QString& destinationNodeIds,
+           const QString& title,
+           const int actorId,
            const QString& optionText,
            const QString& dialogueText,
            const bool start,
@@ -18,9 +20,10 @@ Node::Node(const int id,
      )
 {
     id_ = id;
-    actorId_ = actorId;
     destinationConvIds_ = destinationConvIds;
     destinationNodeIds_ = destinationNodeIds;
+    title_ = title,
+    actorId_ = actorId;
     optionText_ = optionText;
     dialogueText_ = dialogueText;
     start_ = start;
@@ -36,4 +39,84 @@ Node::Node(const int id,
 
 Node::~Node()
 {
+}
+
+int Node::getId() const
+{
+    return id_;
+}
+
+QString Node::getDestinationConvIds() const
+{
+    return destinationConvIds_;
+}
+
+QString Node::getDestinationNodeIds() const
+{
+    return destinationNodeIds_;
+}
+
+QString Node::getTitle() const
+{
+    return title_;
+}
+
+int Node::getActorId() const
+{
+    return actorId_;
+}
+
+QString Node::getOptionText() const
+{
+    return optionText_;
+}
+
+QString Node::getDialogueText() const
+{
+    return dialogueText_;
+}
+
+bool Node::getStart() const
+{
+    return start_;
+}
+
+bool Node::getEnd() const
+{
+    return end_;
+}
+
+bool Node::getSilence() const
+{
+    return silence_;
+}
+
+bool Node::getMulti() const
+{
+    return multi_;
+}
+
+int Node::getChange() const
+{
+    return change_;
+}
+
+bool Node::getInt01Cont() const
+{
+    return int01Cont_;
+}
+
+bool Node::getInt02Nexus() const
+{
+    return int02Nexus_;
+}
+
+bool Node::getInt03Node() const
+{
+    return int03Node_;
+}
+
+bool Node::getIntNpc() const
+{
+    return intNpc_;
 }

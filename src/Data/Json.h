@@ -11,6 +11,7 @@
 
 #include "Data/Actor.h"
 #include "Data/Conversation.h"
+#include "Data/Node.h"
 
 class Json
 {
@@ -27,7 +28,7 @@ private:
     void read();
     void readActors(QJsonValue& value);
     void readConversations(QJsonValue& value);
-    void readNodes(QJsonValue& value);
+    std::vector<Node> readNodes(QJsonValue& value);
 //    void write(QJsonObject& json) const;
     void testing();
 };
