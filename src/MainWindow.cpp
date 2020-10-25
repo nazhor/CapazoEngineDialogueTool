@@ -12,9 +12,22 @@ MainWindow::MainWindow(QWidget *parent)
     setWindowTitle("Capazo Engine Dialogue Tool");
     setWindowIcon(QIcon(":/images/tbdh.png"));
 
-    QMainWindow::showMaximized();
+//    QMainWindow::showMaximized();
 
-    widgetChatmapper = new ChatmapperExport(this);    
+    const int mainWindowPercentWidtch = 30;
+    int mainWindowWidth = getWindowWidth() * mainWindowPercentWidtch / 100;
+    const int mainWindowPercentHeight = 70;
+    int mainWindowHeight = getWindowHeight() * mainWindowPercentHeight / 100;
+    int mainWindowX = (getWindowWidth() / 2) - (mainWindowWidth / 2);
+    int mainWindowY = (getWindowHeight() / 2) - (mainWindowHeight / 2);
+    this->setGeometry(mainWindowX,
+                      mainWindowY,
+                      mainWindowWidth,
+                      mainWindowHeight);
+    this->setMinimumSize(mainWindowWidth, mainWindowHeight);
+
+    widgetChatmapper = new ChatmapperExport(this);
+    ui->horizontalLayout->addWidget(widgetChatmapper);
     widgetChatmapper->show();
 }
 

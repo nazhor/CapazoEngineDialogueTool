@@ -19,9 +19,11 @@ public:
     Json(const QString& filePath);
     ~Json();
 
+    std::vector<Actor> getActors() const;
+    std::vector<Conversation> getConversations() const;
+
 private:
     QString filePath_;
-
     std::vector<Actor> actors_;
     std::vector<Conversation> conversations_;
 
@@ -30,7 +32,7 @@ private:
     void readConversations(QJsonValue& value);
     std::vector<Node> readNodes(QJsonValue& value);
 //    void write(QJsonObject& json) const;
-    void testing();
+    void testing() const;
 };
 
 #endif // JSON_H

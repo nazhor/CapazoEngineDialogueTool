@@ -19,7 +19,7 @@
   <property name="windowTitle">
    <string>Form</string>
   </property>
-  <layout class="QGridLayout" name="gridLayout">
+  <layout class="QGridLayout" name="gridLayout_chatmapper_export">
    <item row="0" column="0">
     <widget class="QLineEdit" name="lineEdit_json_file">
      <property name="font">
@@ -55,7 +55,7 @@
      <property name="checkable">
       <bool>false</bool>
      </property>
-     <layout class="QHBoxLayout" name="horizontalLayout">
+     <layout class="QHBoxLayout" name="horizontalLayout_custom_fields">
       <property name="spacing">
        <number>5</number>
       </property>
@@ -85,7 +85,7 @@
            <height>177</height>
           </rect>
          </property>
-         <layout class="QVBoxLayout" name="verticalLayout_2"/>
+         <layout class="QVBoxLayout" name="verticalLayout_custom_fields"/>
         </widget>
        </widget>
       </item>
@@ -94,6 +94,9 @@
    </item>
    <item row="3" column="0" colspan="2" alignment="Qt::AlignHCenter">
     <widget class="QPushButton" name="pushButton_export_json">
+     <property name="enabled">
+      <bool>false</bool>
+     </property>
      <property name="sizePolicy">
       <sizepolicy hsizetype="Maximum" vsizetype="Fixed">
        <horstretch>0</horstretch>
@@ -108,7 +111,9 @@
      </property>
      <property name="icon">
       <iconset resource="../../res/resources.qrc">
-       <normaloff>:/images/save.png</normaloff>:/images/save.png</iconset>
+       <normaloff>:/images/save.png</normaloff>
+       <disabledoff>:/images/save_dis.png</disabledoff>
+       <disabledon>:/images/save_dis.png</disabledon>:/images/save.png</iconset>
      </property>
      <property name="iconSize">
       <size>
@@ -134,7 +139,7 @@
      <property name="title">
       <string>Actors</string>
      </property>
-     <layout class="QHBoxLayout" name="horizontalLayout_2">
+     <layout class="QHBoxLayout" name="horizontalLayout_actors">
       <property name="spacing">
        <number>5</number>
       </property>
@@ -164,7 +169,7 @@
            <height>177</height>
           </rect>
          </property>
-         <layout class="QVBoxLayout" name="verticalLayout"/>
+         <layout class="QVBoxLayout" name="verticalLayout_actors"/>
         </widget>
        </widget>
       </item>

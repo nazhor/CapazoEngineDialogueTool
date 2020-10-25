@@ -25,6 +25,7 @@ public:
 private:
     Ui::MainWindow *ui;
 
+    MainWindow *parent_;
     ChatmapperExport *widgetChatmapper;
 };
 #endif // MAINWINDOW_H

@@ -10,23 +10,28 @@ CONFIG += c++11
 
 SOURCES += \
     CustomWidgets/ChatmapperExport.cpp \
+    CustomWidgets/ResultDialog.cpp \
     Data/Actor.cpp \
     Data/Conversation.cpp \
     Data/Json.cpp \
     Data/Node.cpp \
+    Data/Validation.cpp \
     main.cpp \
     MainWindow.cpp
 
 HEADERS += \
     CustomWidgets/ChatmapperExport.h \
+    CustomWidgets/ResultDialog.h \
     Data/Actor.h \
     Data/Conversation.h \
     Data/Json.h \
     Data/Node.h \
+    Data/Validation.h \
     MainWindow.h
 
 FORMS += \
     CustomWidgets/ChatmapperExport.ui \
+    CustomWidgets/ResultDialog.ui \
     MainWindow.ui
 
 # Default rules for deployment.

@@ -4,5 +4,10 @@
         <file>images/find.png</file>
         <file>images/save.png</file>
         <file>images/pattern.png</file>
+        <file>images/ok.png</file>
+        <file>images/cancel.png</file>
+        <file>images/save_dis.png</file>
+        <file>images/ok.gif</file>
+        <file>images/error.gif</file>
     </qresource>
 </RCC>

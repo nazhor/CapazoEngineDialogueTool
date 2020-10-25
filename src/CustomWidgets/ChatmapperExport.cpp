@@ -7,16 +7,20 @@ ChatmapperExport::ChatmapperExport(QWidget *parent) :
 {
     ui->setupUi(this);
 
-    const int menuScreenPercentWidtch = 30;
-    int widgetWidth = MainWindow::getWindowWidth() * menuScreenPercentWidtch / 100;
-    const int menuScreenPercentHeight = 70;
-    int widgetHeight = MainWindow::getWindowHeight() * menuScreenPercentHeight / 100;
-    int widgetX = (MainWindow::getWindowWidth() / 2) - (widgetWidth / 2);
-    int widgetY = (MainWindow::getWindowHeight() / 2) - (widgetHeight / 2);
-    this->setGeometry(widgetX,
-                      widgetY,
-                      widgetWidth,
-                      widgetHeight);
+    parent_ = (MainWindow*)parent;
+
+
+//    const int widgetPercentWidtch = 30;
+//    int widgetWidth = MainWindow::getWindowWidth() * widgetPercentWidtch / 100;
+//    const int widgetPercentHeight = 70;
+//    int widgetHeight = MainWindow::getWindowHeight() * widgetPercentHeight / 100;
+//    int widgetX = (MainWindow::getWindowWidth() / 2) - (widgetWidth / 2);
+//    int widgetY = (MainWindow::getWindowHeight() / 2) - (widgetHeight / 2);
+//    this->setGeometry(widgetX,
+//                      widgetY,
+//                      widgetWidth,
+//                      widgetHeight);
+
 
     this->setAutoFillBackground(true);
     QPalette palb = palette();
@@ -39,11 +43,11 @@ ChatmapperExport::~ChatmapperExport()
 
 void ChatmapperExport::paintEvent(QPaintEvent *event)
 {
-    QPainter painter(this);
-    painter.setRenderHint(QPainter::Antialiasing);
-    QPen pen(Qt::black, 5);
-    painter.setPen(pen);
-    painter.drawRect(0, 0, this->width(), this->height());
+//    QPainter painter(this);
+//    painter.setRenderHint(QPainter::Antialiasing);
+//    QPen pen(Qt::black, 5);
+//    painter.setPen(pen);
+//    painter.drawRect(0, 0, this->width(), this->height());
 }
 
 void ChatmapperExport::browserFile()
@@ -55,11 +59,31 @@ void ChatmapperExport::browserFile()
     if (!jsonFilePath.isEmpty())
     {
         ui->lineEdit_json_file->setText(jsonFilePath);
-        Json jsonFile(jsonFilePath);
+        jsonFile_ = new Json(jsonFilePath);
+        ui->pushButton_export_json->setEnabled(true);
     }
 }
 
 void ChatmapperExport::exportJsonFile()
 {
+    Validation v(jsonFile_->getActors(), jsonFile_->getConversations());
+    QString validationResult = v.validate();
+    ResultDialog *result;
+    if (validationResult.isEmpty())
+    {
+        result = new ResultDialog(true, this);
+    }
+    else
+    {
+        result = new ResultDialog(false, this);
+        QFile file("errors.log");
+        if(file.open(QIODevice::WriteOnly | QIODevice::Text)) {
+            file.write(validationResult.toUtf8());
+        }
+        file.close();
+    }
+    if (result->exec() == QDialog::Accepted)
+    {
 
+    }
 }

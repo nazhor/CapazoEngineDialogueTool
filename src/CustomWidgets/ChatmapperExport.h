@@ -9,6 +9,8 @@
 #include <MainWindow.h>
 
 #include "Data/Json.h"
+#include "Data/Validation.h"
+#include "CustomWidgets/ResultDialog.h"
 
 namespace Ui {
 class ChatmapperExport;
@@ -33,6 +35,7 @@ private:
     Ui::ChatmapperExport *ui;
 
     MainWindow *parent_;
+    Json *jsonFile_;
 
 };
 

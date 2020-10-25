@@ -130,7 +130,7 @@ std::vector<Node> Json::readNodes(QJsonValue& value)
 
 //}
 
-void Json::testing()
+void Json::testing() const
 {
     qDebug() << "-- Actors --";
     foreach (const Actor a, actors_)
@@ -167,4 +167,14 @@ void Json::testing()
         }
     }
     qDebug() << "-- End conversation --";
+}
+
+std::vector<Actor> Json::getActors() const
+{
+    return actors_;
+}
+
+std::vector<Conversation> Json::getConversations() const
+{
+    return conversations_;
 }
