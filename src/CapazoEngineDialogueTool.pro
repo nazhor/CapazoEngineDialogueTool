@@ -10,6 +10,7 @@ CONFIG += c++11
 
 SOURCES += \
     CustomWidgets/ChatmapperExport.cpp \
+    CustomWidgets/CustomField.cpp \
     CustomWidgets/ResultDialog.cpp \
     Data/Actor.cpp \
     Data/Conversation.cpp \
@@ -21,6 +22,7 @@ SOURCES += \
 
 HEADERS += \
     CustomWidgets/ChatmapperExport.h \
+    CustomWidgets/CustomField.h \
     CustomWidgets/ResultDialog.h \
     Data/Actor.h \
     Data/Conversation.h \
@@ -31,6 +33,7 @@ HEADERS += \
 
 FORMS += \
     CustomWidgets/ChatmapperExport.ui \
+    CustomWidgets/CustomField.ui \
     CustomWidgets/ResultDialog.ui \
     MainWindow.ui
 
@@ -41,3 +44,5 @@ else: unix:!android: target.path = /opt/$${TARGET}/bin
 
 RESOURCES += \
     ../res/resources.qrc
+
+DISTFILES +=

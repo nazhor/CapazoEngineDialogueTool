@@ -1,9 +1,12 @@
 #include "Json.h"
+#include "CustomWidgets/ChatmapperExport.h"
 
-Json::Json(const QString& filePath)
+Json::Json(const QString& filePath, QWidget *parent)
 {
     qInfo() << "-- create json object --";
     filePath_ = filePath;
+    parent_ = (ChatmapperExport*)parent;
+    gameReadyFolder_ = "GameReadyFiles";
     read();
     testing();
 }
@@ -17,15 +20,13 @@ void Json::read()
     QFile fileToOpen(filePath_);
     if (fileToOpen.open(QIODevice::ReadOnly))
     {
-        QTextStream chatmapper(&fileToOpen);
-        QString chatmapperString = chatmapper.readAll();
-        fileToOpen.close();
-
-        QJsonDocument chatmapperDoc = QJsonDocument::fromJson(chatmapperString.toUtf8());
+        QByteArray chatmapperBA = fileToOpen.readAll();
+        QJsonDocument chatmapperDoc(QJsonDocument::fromJson(chatmapperBA));
         QJsonObject chatmapperObj = chatmapperDoc.object();
         QJsonValue assetValues = chatmapperObj.value("Assets");
         readActors(assetValues);
         readConversations(assetValues);
+        fileToOpen.close();
     }
 
 }
@@ -125,10 +126,95 @@ std::vector<Node> Json::readNodes(QJsonValue& value)
     return nodes;
 }
 
-//void Json::write(QJsonObject& json) const
-//{
+void Json::save()
+{
+    write();
+}
 
-//}
+void Json::write()
+{
+    if (!QDir(gameReadyFolder_).exists())
+    {
+        QDir().mkdir(gameReadyFolder_);
+    }
+    QFile saveFile(gameReadyFolder_ + "/" + "pr.json");
+
+    if (saveFile.open(QIODevice::WriteOnly))
+    {
+        QJsonObject gameObj;
+
+        QJsonArray actorsArray;
+        foreach (const Actor actor, actors_)
+        {
+            QJsonObject actorObj;
+            actorObj["id"] = actor.getId();
+            actorObj["name"] = actor.getName();
+            actorsArray.append(actorObj);
+        }
+        gameObj["actors"] = actorsArray;
+
+
+        QJsonArray conversationsArray;
+        foreach (const Conversation conversation, conversations_)
+        {
+            QJsonObject conversationObj;
+            conversationObj["id"] = conversation.getId();
+            conversationObj["title"] = conversation.getTitle();
+            QJsonArray nodesArray;
+            foreach (const Node node, conversation.getNodes())
+            {
+                QJsonObject nodeObj;
+                nodeObj["id"] = node.getId();
+                nodeObj["destinationConvIds"] = node.getDestinationConvIds();
+                nodeObj["destinationNodeIds"] = node.getDestinationNodeIds();
+                nodeObj["title"] = node.getTitle();
+                nodeObj["actorId"] = node.getActorId();
+                nodeObj["optionText"] = node.getOptionText();
+                nodeObj["dialogueText"] = node.getDialogueText();
+                nodeObj["start"] = node.getStart();
+                nodeObj["end"] = node.getEnd();
+                if (parent_->silence->getCheckStatus())
+                {
+                    nodeObj["silence"] = node.getSilence();
+                }
+                if (parent_->multi->getCheckStatus())
+                {
+                    nodeObj["multi"] = node.getMulti();
+                }
+                if (parent_->change->getCheckStatus())
+                {
+                    nodeObj["change"] = node.getChange();
+                }
+                if (parent_->int01Cont->getCheckStatus())
+                {
+                    nodeObj["int01Cont"] = node.getInt01Cont();
+                }
+                if (parent_->int02Nexus->getCheckStatus())
+                {
+                    nodeObj["int02Nexus"] = node.getInt02Nexus();
+                }
+                if (parent_->int03Node->getCheckStatus())
+                {
+                    nodeObj["int03Node"] = node.getInt03Node();
+                }
+                if (parent_->intNpc->getCheckStatus())
+                {
+                    nodeObj["intNpc"] = node.getIntNpc();
+                }
+                nodesArray.append(nodeObj);
+            }
+            conversationObj["nodes"] = nodesArray;
+            conversationsArray.append(conversationObj);
+        }
+        gameObj["conversations"] = conversationsArray;
+
+        QJsonDocument gameDoc(gameObj);
+        saveFile.write(gameDoc.toJson());
+    }
+    else
+    {
+    }
+}
 
 void Json::testing() const
 {

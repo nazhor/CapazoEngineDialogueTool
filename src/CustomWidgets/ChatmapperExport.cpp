@@ -29,8 +29,10 @@ ChatmapperExport::ChatmapperExport(QWidget *parent) :
     this->setPalette(palb);
     QPalette palf = palette();
     palf.setBrush(QPalette::WindowText, Qt::white);
-    ui->groupBox_actors->setPalette(palf);
+    ui->groupBox_output_log->setPalette(palf);
     ui->groupBox_custom_fields->setPalette(palf);
+
+    addCustomFields();
 
     connect(ui->pushButton_browser_file, SIGNAL(released()), this, SLOT(browserFile()));
     connect(ui->pushButton_export_json, SIGNAL(released()), this, SLOT(exportJsonFile()));
@@ -59,7 +61,16 @@ void ChatmapperExport::browserFile()
     if (!jsonFilePath.isEmpty())
     {
         ui->lineEdit_json_file->setText(jsonFilePath);
-        jsonFile_ = new Json(jsonFilePath);
+        jsonFile_ = new Json(jsonFilePath, this);
+
+        QFile fileToOpen(":/files/CustomFields");
+        if (fileToOpen.open(QIODevice::ReadOnly))
+        {
+            QTextStream customFields(&fileToOpen);
+            QString customFieldsRead = customFields.readAll();            
+            fileToOpen.close();
+        }        
+
         ui->pushButton_export_json->setEnabled(true);
     }
 }
@@ -72,6 +83,8 @@ void ChatmapperExport::exportJsonFile()
     if (validationResult.isEmpty())
     {
         result = new ResultDialog(true, this);
+        ui->plainTextEdit_output_log->setPlainText("No errors");
+        jsonFile_->save();
     }
     else
     {
@@ -81,9 +94,29 @@ void ChatmapperExport::exportJsonFile()
             file.write(validationResult.toUtf8());
         }
         file.close();
+        ui->plainTextEdit_output_log->setPlainText(validationResult);
     }
     if (result->exec() == QDialog::Accepted)
     {
 
     }
+}
+
+void ChatmapperExport::addCustomFields()
+{
+    silence = new CustomField("Silence");
+    multi = new CustomField("Multispeech");
+    change = new CustomField("Change of mind");
+    int01Cont = new CustomField("Int. Continue");
+    int02Nexus = new CustomField("Int. Nexus");
+    int03Node = new CustomField("Int. Node");
+    intNpc = new CustomField("Int. Npc");
+
+    ui->verticalLayout_custom_fields->addWidget(silence);
+    ui->verticalLayout_custom_fields->addWidget(multi);
+    ui->verticalLayout_custom_fields->addWidget(change);
+    ui->verticalLayout_custom_fields->addWidget(int01Cont);
+    ui->verticalLayout_custom_fields->addWidget(int02Nexus);
+    ui->verticalLayout_custom_fields->addWidget(int03Node);
+    ui->verticalLayout_custom_fields->addWidget(intNpc);
 }

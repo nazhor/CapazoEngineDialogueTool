@@ -17,7 +17,7 @@ Node::Node(
            const bool int02Nexus,
            const bool int03Node,
            const bool intNpc
-     )
+        )
 {
     id_ = id;
     destinationConvIds_ = destinationConvIds;
