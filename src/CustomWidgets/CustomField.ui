@@ -42,6 +42,9 @@
      <property name="text">
       <string>CheckBox</string>
      </property>
+     <property name="checked">
+      <bool>true</bool>
+     </property>
     </widget>
    </item>
   </layout>

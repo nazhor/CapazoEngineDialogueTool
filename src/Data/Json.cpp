@@ -8,7 +8,7 @@ Json::Json(const QString& filePath, QWidget *parent)
     parent_ = (ChatmapperExport*)parent;
     gameReadyFolder_ = "GameReadyFiles";
     read();
-    testing();
+    //testing();
 }
 
 Json::~Json()
@@ -27,8 +27,13 @@ void Json::read()
         readActors(assetValues);
         readConversations(assetValues);
         fileToOpen.close();
-    }
 
+        qDebug() << "file: " << filePath_;
+        int initS = filePath_.lastIndexOf("/") + 1;
+        int endS = filePath_.lastIndexOf(".json");
+        fileName_ = filePath_.mid(initS, endS - initS);
+        qDebug() << "file name: " << fileName_;
+    }
 }
 
 void Json::readActors(QJsonValue& value)
@@ -137,9 +142,10 @@ void Json::write()
     {
         QDir().mkdir(gameReadyFolder_);
     }
-    QFile saveFile(gameReadyFolder_ + "/" + "pr.json");
+    QFile saveJsonFile(gameReadyFolder_ + "/" + fileName_ + ".json");
+    QFile saveCsvFile(gameReadyFolder_ + "/" + fileName_ + ".csv");
 
-    if (saveFile.open(QIODevice::WriteOnly))
+    if (saveJsonFile.open(QIODevice::WriteOnly) && saveCsvFile.open(QIODevice::WriteOnly))
     {
         QJsonObject gameObj;
 
@@ -153,6 +159,9 @@ void Json::write()
         }
         gameObj["actors"] = actorsArray;
 
+        //CSV
+        QTextStream streamCsv(&saveCsvFile);
+        streamCsv << "conversationId" << "\t" << "nodeId" << "\t" << "optionText_ES" << "\t" << "dialogueText_ES" << "\t" << "optionText_EN" << "\t" << "dialogueText_EN" << "\n";
 
         QJsonArray conversationsArray;
         foreach (const Conversation conversation, conversations_)
@@ -202,6 +211,10 @@ void Json::write()
                     nodeObj["intNpc"] = node.getIntNpc();
                 }
                 nodesArray.append(nodeObj);
+
+                QString a = node.getOptionText();
+                QString b = node.getDialogueText();
+                streamCsv << conversation.getId() << "\t" << node.getId() << "\t" << "\"" << node.getOptionText() << "\"" << "\t" << "\"" << node.getDialogueText() << "\"" << "\n";
             }
             conversationObj["nodes"] = nodesArray;
             conversationsArray.append(conversationObj);
@@ -209,7 +222,10 @@ void Json::write()
         gameObj["conversations"] = conversationsArray;
 
         QJsonDocument gameDoc(gameObj);
-        saveFile.write(gameDoc.toJson());
+        saveJsonFile.write(gameDoc.toJson());
+
+        saveJsonFile.close();
+        saveCsvFile.close();
     }
     else
     {

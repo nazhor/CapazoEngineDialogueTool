@@ -29,6 +29,7 @@ public:
 
 private:
     QString filePath_;
+    QString fileName_;
     ChatmapperExport *parent_;
     std::vector<Actor> actors_;
     std::vector<Conversation> conversations_;
