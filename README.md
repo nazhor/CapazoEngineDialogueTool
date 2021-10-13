@@ -1,2 +1,3 @@
 # CapazoEngineDialogueTool
-Capazo Engine Dialogue Tool
+
+C++ + Qt
