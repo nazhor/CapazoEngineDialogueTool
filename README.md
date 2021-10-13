@@ -1,3 +1,3 @@
 # CapazoEngineDialogueTool
 
-C++ + Qt
+Qt + C++
