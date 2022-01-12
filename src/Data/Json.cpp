@@ -176,7 +176,8 @@ void Json::write()
                 nodeObj["id"] = node.getId();
                 nodeObj["destinationConvIds"] = node.getDestinationConvIds();
                 nodeObj["destinationNodeIds"] = node.getDestinationNodeIds();
-                nodeObj["title"] = node.getTitle();
+//                El campo title lo comento que no tiene ningún uso en UE4
+//                nodeObj["title"] = node.getTitle();
                 nodeObj["actorId"] = node.getActorId();
                 nodeObj["optionText"] = node.getOptionText();
                 nodeObj["dialogueText"] = node.getDialogueText();

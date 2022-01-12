@@ -10,6 +10,7 @@ ChatmapperExport::ChatmapperExport(QWidget *parent) :
     parent_ = (MainWindow*)parent;
 
 
+//    Por si en un futuro esto es una ventana dentro de una app más grande
 //    const int widgetPercentWidtch = 30;
 //    int widgetWidth = MainWindow::getWindowWidth() * widgetPercentWidtch / 100;
 //    const int widgetPercentHeight = 70;
