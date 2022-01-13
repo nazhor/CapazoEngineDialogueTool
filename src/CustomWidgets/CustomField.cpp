@@ -34,3 +34,8 @@ bool CustomField::getCheckStatus() const
     return ui->checkBox_custom_field->isChecked();
 }
 
+void CustomField::setCheckStatus(const bool state)
+{
+    ui->checkBox_custom_field->setChecked(state);
+}
+

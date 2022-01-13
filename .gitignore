@@ -74,4 +74,4 @@ Thumbs.db
 # Qt build dirs
 build_Win64_debug/*
 build_Win64_release/*
-build-CapazoEngineDialogueTool-Desktop_x86_windows_msvc2022_pe_64bit*
+build*

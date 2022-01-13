@@ -46,3 +46,10 @@ RESOURCES += \
     ../res/resources.qrc
 
 DISTFILES +=
+
+VERSION = 1.0.0.0
+QMAKE_TARGET_COMPANY = "The Brodevhood"
+QMAKE_TARGET_PRODUCT = "Capazo Dialogue Tool"
+QMAKE_TARGET_DESCRIPTION = "Capazo Dialogue Tool"
+QMAKE_TARGET_COPYRIGHT = "The Brodevhood 2022"
+win32:RC_ICONS += ../res/images/icon.ico

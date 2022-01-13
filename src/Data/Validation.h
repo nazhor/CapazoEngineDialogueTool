@@ -15,9 +15,13 @@ public:
     Validation(const std::vector<Actor>& actors, const std::vector<Conversation>& conversations);
     ~Validation();
 
-    QString validate() const;
+    QString validate();
 
 private:
+    void setCabezabuqueTitle();
+    void checkDestinyNodes(); //Check that every node has a destiny or is an end node
+
+
     std::vector<Actor> actors_;
     std::vector<Conversation> conversations_;
     QString output_;

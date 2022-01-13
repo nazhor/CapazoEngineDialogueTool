@@ -75,7 +75,6 @@
     ],
     "Conversations": [
       {
-        "ID": 1,
         "DialogNodes": [
           {
             "OutgoingLinks": [
@@ -1776,7 +1775,7 @@
               "Audio Files": "[]",
               "Video File": "",
               "Start": "False",
-              "End": "False",
+              "End": "True",
               "Silence": "True",
               "Multi": "False",
               "Change": "0",
@@ -4129,7 +4128,7 @@
               "Audio Files": "[]",
               "Video File": "",
               "Start": "False",
-              "End": "False",
+              "End": "True",
               "Silence": "False",
               "Multi": "False",
               "Change": "0",
@@ -4345,7 +4344,7 @@
               "Audio Files": "[]",
               "Video File": "",
               "Start": "False",
-              "End": "True",
+              "End": "False",
               "Silence": "False",
               "Multi": "False",
               "Change": "0",
@@ -4413,7 +4412,7 @@
               "Audio Files": "[]",
               "Video File": "",
               "Start": "False",
-              "End": "True",
+              "End": "False",
               "Silence": "False",
               "Multi": "False",
               "Change": "0",
@@ -5183,7 +5182,8 @@
           "Description": "Primera conversación del capítulo que gira en torno a los kebabs y el consumo de alcohol.",
           "Actor": "1",
           "Conversant": "2"
-        }
+        },
+        "ID": 1
       }
     ],
     "UserVariables": []

@@ -7,6 +7,7 @@
 #include <QPalette>
 #include <QFileDialog>
 #include <QFile>
+#include <QMap>
 
 #include <MainWindow.h>
 #include "Data/Json.h"
@@ -33,7 +34,7 @@ public:
     CustomField *int01Cont;
     CustomField *int02Nexus;
     CustomField *int03Node;
-    CustomField *intNpc;
+    CustomField *intNpc;    
 
 protected:
     void paintEvent(QPaintEvent *event);
@@ -41,14 +42,17 @@ protected:
 private slots:
     void browserFile();
     void exportJsonFile();
+    void selectGame(const int index);
 
 private:
     Ui::ChatmapperExport *ui;
 
     MainWindow *parent_;
     Json *jsonFile_;
+    QMap<int, QString> *gamesMap;
 
     void addCustomFields();
+    void addGames();
 
 };
 

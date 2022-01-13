@@ -5,25 +5,6 @@ Validation::Validation(const std::vector<Actor>& actors, const std::vector<Conve
     actors_ = actors;
     conversations_ = conversations;
     output_ = "";
-//    output_ = "a\n";
-//    output_.append("2 ñ\n");
-//    output_.append("3 á\n");
-//    output_.append("4 |\n");
-//    output_.append("5 ë\n");
-//    output_.append("6 ô\n");
-//    output_.append("7 ~\n");
-//    output_.append("8\n");
-//    output_.append("9\n");
-//    output_.append("9\n");
-//    output_.append("9\n");
-//    output_.append("9\n");
-//    output_.append("9\n");
-//    output_.append("9\n");
-//    output_.append("9\n");
-//    output_.append("9\n");
-//    output_.append("9\n");
-//    output_.append("9\n");
-//    output_.append("b\n");
     errorCounter_ = 0;
 }
 
@@ -31,7 +12,55 @@ Validation::~Validation()
 {
 }
 
-QString Validation::validate() const
+QString Validation::validate()
 {
+    checkDestinyNodes();
+    setCabezabuqueTitle();
     return output_;
+}
+
+void Validation::setCabezabuqueTitle()
+{
+    if(errorCounter_ <= 5)
+    {
+        output_ = QString::number(errorCounter_) + " errors: Cabezon\n" + output_;
+    }
+    else if(errorCounter_ > 5 && errorCounter_ <= 10)
+    {
+        output_ = QString::number(errorCounter_) + " errors: Cabezabuque\n" + output_;
+    }
+    else
+    {
+        output_ = QString::number(errorCounter_) + " errors: Oniiii-chan\n" + output_;
+    }
+}
+
+void Validation::checkDestinyNodes()
+{
+    for(const auto& valueConversation: conversations_)
+    {
+        std::vector<Node> nodes_ = valueConversation.getNodes();
+        for(const auto& valueNode: nodes_)
+        {
+            if (valueNode.getDestinationConvIds().isEmpty() ||
+                valueNode.getDestinationNodeIds().isEmpty())
+            {
+                if (!valueNode.getEnd())
+                {
+                    QString error_msg = "Conversation(" + QString::number(valueConversation.getId()) + ") node(" + QString::number(valueNode.getId()) + ") has no destination AND is no end\n";
+                    output_.append(error_msg);
+                    errorCounter_++;
+                }
+            }
+            else
+            {
+                if (valueNode.getEnd())
+                {
+                    QString error_msg = "Conversation(" + QString::number(valueConversation.getId()) + ") node(" + QString::number(valueNode.getId()) + ") has destination BUT has end checked\n";
+                    output_.append(error_msg);
+                    errorCounter_++;
+                }
+            }
+        }
+    }
 }

@@ -18,6 +18,7 @@ public:
     ~CustomField();
 
     bool getCheckStatus() const;
+    void setCheckStatus(const bool state);
 
 protected:
     void paintEvent(QPaintEvent *event);

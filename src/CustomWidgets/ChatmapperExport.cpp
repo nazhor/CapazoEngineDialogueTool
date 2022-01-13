@@ -34,9 +34,11 @@ ChatmapperExport::ChatmapperExport(QWidget *parent) :
     ui->groupBox_custom_fields->setPalette(palf);
 
     addCustomFields();
+    addGames();
 
     connect(ui->pushButton_browser_file, SIGNAL(released()), this, SLOT(browserFile()));
     connect(ui->pushButton_export_json, SIGNAL(released()), this, SLOT(exportJsonFile()));
+    connect(ui->comboBox_select_game, SIGNAL(currentIndexChanged(int)), this, SLOT(selectGame(int)));
 }
 
 ChatmapperExport::~ChatmapperExport()
@@ -120,4 +122,45 @@ void ChatmapperExport::addCustomFields()
     ui->verticalLayout_custom_fields->addWidget(int02Nexus);
     ui->verticalLayout_custom_fields->addWidget(int03Node);
     ui->verticalLayout_custom_fields->addWidget(intNpc);
+}
+
+void ChatmapperExport::addGames()
+{
+    gamesMap = new QMap<int, QString>;
+    gamesMap->insert(0, "Custom");
+    gamesMap->insert(1, "Temazo");
+    gamesMap->insert(2, "I need a drink");
+
+    QMap<int, QString>::iterator it;
+    for (it = gamesMap->begin(); it != gamesMap->end(); ++it)
+    {
+        ui->comboBox_select_game->addItem(it.value());
+    }
+}
+
+void ChatmapperExport::selectGame(const int index)
+{
+    switch (index)
+    {
+        case 0: //Custom
+        case 2: //I need a drink
+            silence->setCheckStatus(true);
+            multi->setCheckStatus(true);
+            change->setCheckStatus(true);
+            int01Cont->setCheckStatus(true);
+            int02Nexus->setCheckStatus(true);
+            int03Node->setCheckStatus(true);
+            intNpc->setCheckStatus(true);
+            break;
+        case 1: //Temazo
+            silence->setCheckStatus(true);
+            multi->setCheckStatus(false);
+            change->setCheckStatus(false);
+            int01Cont->setCheckStatus(false);
+            int02Nexus->setCheckStatus(false);
+            int03Node->setCheckStatus(false);
+            intNpc->setCheckStatus(false);
+            break;
+        break;        
+    }
 }
