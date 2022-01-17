@@ -16,11 +16,11 @@ public:
     ~Validation();
 
     QString validate();
+    int getErrorCount() const;
 
 private:
     void setCabezabuqueTitle();
     void checkDestinyNodes(); //Check that every node has a destiny or is an end node
-
 
     std::vector<Actor> actors_;
     std::vector<Conversation> conversations_;

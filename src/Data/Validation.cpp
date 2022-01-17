@@ -19,6 +19,11 @@ QString Validation::validate()
     return output_;
 }
 
+int Validation::getErrorCount() const
+{
+    return errorCounter_;
+}
+
 void Validation::setCabezabuqueTitle()
 {
     if(errorCounter_ <= 5)

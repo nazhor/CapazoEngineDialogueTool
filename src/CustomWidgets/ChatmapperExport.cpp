@@ -82,8 +82,9 @@ void ChatmapperExport::exportJsonFile()
 {
     Validation v(jsonFile_->getActors(), jsonFile_->getConversations());
     QString validationResult = v.validate();
+    int validationErrorCount = v.getErrorCount();
     ResultDialog *result;
-    if (validationResult.isEmpty())
+    if (validationErrorCount == 0)
     {
         result = new ResultDialog(true, this);
         ui->plainTextEdit_output_log->setPlainText("No errors");
