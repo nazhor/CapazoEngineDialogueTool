@@ -144,20 +144,59 @@ void Json::write()
     }
     QFile saveJsonFile(gameReadyFolder_ + "/" + fileName_ + ".json");
     QFile saveCsvFile(gameReadyFolder_ + "/" + fileName_ + ".csv");
+    QFile saveCppFile(gameReadyFolder_ + "/" + fileName_ + ".cpp");
 
-    if (saveJsonFile.open(QIODevice::WriteOnly) && saveCsvFile.open(QIODevice::WriteOnly))
+    if (saveJsonFile.open(QIODevice::WriteOnly) && saveCsvFile.open(QIODevice::WriteOnly) && saveCppFile.open(QIODevice::WriteOnly))
     {
         QJsonObject gameObj;
 
-        QJsonArray actorsArray;
+        //Add actor to the json file. Disabled because it's more useful to create a .cpp with the lines to copy in the Unreal .cpp class
+//        QJsonArray actorsArray;
+//        foreach (const Actor actor, actors_)
+//        {
+//            QJsonObject actorObj;
+//            actorObj["id"] = actor.getId();
+//            actorObj["name"] = actor.getName();
+//            actorsArray.append(actorObj);
+//        }
+//        gameObj["actors"] = actorsArray;
+        //Create the cpp with actors
+        QTextStream streamCpp(&saveCppFile);
+        streamCpp << "//Actors map" << "\n";
+        streamCpp << "UPROPERTY(EditAnywhere, BlueprintReadOnly, Category = \"Capazo\")" << "\n";
+        streamCpp << "    TMap<FString, int32> ActorIdsMap;" << "\n";
+        streamCpp << "\n";
         foreach (const Actor actor, actors_)
         {
-            QJsonObject actorObj;
-            actorObj["id"] = actor.getId();
-            actorObj["name"] = actor.getName();
-            actorsArray.append(actorObj);
+            QString id = QString::number(actor.getId());
+            streamCpp << "ActorsMap.Add(\"" + actor.getName() + "\", " + id + ");" << "\n";
         }
-        gameObj["actors"] = actorsArray;
+        streamCpp << "\n";
+        streamCpp << "//Actors enums, revisa las COMMAS" << "\n";
+        streamCpp << "UENUM(BlueprintType)" << "\n";
+        streamCpp << "enum class EActors : uint8" << "\n";
+        streamCpp << "{ " << "\n";
+        foreach (const Actor actor, actors_)
+        {
+            streamCpp << "    " << actor.getName() << " UMETA(DisplayName = \"" + actor.getName() + "\")," << "\n";
+        }
+        streamCpp << "}; " << "\n";
+        streamCpp << "\n";
+        streamCpp << "//Conversations map" << "\n";
+        streamCpp << "UPROPERTY(EditAnywhere, BlueprintReadOnly, Category = \"Capazo\")" << "\n";
+        streamCpp << "    TMap<FString, int32> ConversationIdsMap;" << "\n";
+        streamCpp << "\n";
+        foreach (const Conversation conversation, conversations_)
+        {
+            QString id = QString::number(conversation.getId());
+            streamCpp << "ConversationIdsMap.Add(\"" + conversation.getTitle() + "\", " + id + ");" << "\n";
+        }
+        streamCpp << "\n";
+        streamCpp << "//Conversations enums, revisa las COMMAS" << "\n";
+        streamCpp << "UENUM(BlueprintType)" << "\n";
+        streamCpp << "enum class EConversations : uint8" << "\n";
+        streamCpp << "{ " << "\n";
+
 
         //CSV
         QTextStream streamCsv(&saveCsvFile);
@@ -169,6 +208,7 @@ void Json::write()
             QJsonObject conversationObj;
             conversationObj["id"] = conversation.getId();
             conversationObj["title"] = conversation.getTitle();
+            streamCpp << "    " << conversation.getTitle() << " UMETA(DisplayName = \"" + conversation.getTitle() + "\")," << "\n";
             QJsonArray nodesArray;
             foreach (const Node node, conversation.getNodes())
             {
@@ -225,8 +265,10 @@ void Json::write()
         QJsonDocument gameDoc(gameObj);
         saveJsonFile.write(gameDoc.toJson());
 
+        streamCpp << "}; " << "\n";
         saveJsonFile.close();
         saveCsvFile.close();
+        saveCppFile.close();
     }
     else
     {

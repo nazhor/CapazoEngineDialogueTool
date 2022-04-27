@@ -18,39 +18,12 @@
       },
       {
         "Fields": {
-          "Name": "Npc01 - FOX",
+          "Name": "Npc01_FOX",
           "Pictures": "[]",
           "Description": "",
           "IsPlayer": "False"
         },
         "ID": 2
-      },
-      {
-        "Fields": {
-          "Name": "Npc02 - CAT",
-          "Pictures": "[]",
-          "Description": "",
-          "IsPlayer": "False"
-        },
-        "ID": 3
-      },
-      {
-        "Fields": {
-          "Name": "Npc03 - DOG",
-          "Pictures": "[]",
-          "Description": "",
-          "IsPlayer": "False"
-        },
-        "ID": 4
-      },
-      {
-        "Fields": {
-          "Name": "Npc04 - RAT",
-          "Pictures": "[]",
-          "Description": "",
-          "IsPlayer": "False"
-        },
-        "ID": 5
       }
     ],
     "Items": [
@@ -5177,7 +5150,7 @@
         ],
         "NodeColor": 0,
         "Fields": {
-          "Title": "S01E01_1 (Kebab)",
+          "Title": "S01E01_1_Kebab",
           "Pictures": "[]",
           "Description": "Primera conversación del capítulo que gira en torno a los kebabs y el consumo de alcohol.",
           "Actor": "1",
