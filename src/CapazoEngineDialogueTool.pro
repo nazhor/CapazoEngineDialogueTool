@@ -47,7 +47,7 @@ RESOURCES += \
 
 DISTFILES +=
 
-VERSION = 1.0.0.0
+VERSION = 1.1.1
 QMAKE_TARGET_COMPANY = "The Brodevhood"
 QMAKE_TARGET_PRODUCT = "Capazo Dialogue Tool"
 QMAKE_TARGET_DESCRIPTION = "Capazo Dialogue Tool"

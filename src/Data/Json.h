@@ -41,6 +41,8 @@ private:
     std::vector<Node> readNodes(QJsonValue& value);    
     void write();
     void testing() const;
+    void addActorsToCpp(QTextStream& streamCpp) const;
+    void addConversationsToCpp(QTextStream& streamCpp) const;
 };
 
 #endif // JSON_H

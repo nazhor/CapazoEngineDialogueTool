@@ -162,40 +162,14 @@ void Json::write()
 //        gameObj["actors"] = actorsArray;
         //Create the cpp with actors
         QTextStream streamCpp(&saveCppFile);
-        streamCpp << "//Actors map" << "\n";
-        streamCpp << "UPROPERTY(EditAnywhere, BlueprintReadOnly, Category = \"Capazo\")" << "\n";
-        streamCpp << "    TMap<FString, int32> ActorIdsMap;" << "\n";
+        addActorsToCpp(streamCpp);
         streamCpp << "\n";
-        foreach (const Actor actor, actors_)
-        {
-            QString id = QString::number(actor.getId());
-            streamCpp << "ActorsMap.Add(\"" + actor.getName() + "\", " + id + ");" << "\n";
-        }
-        streamCpp << "\n";
-        streamCpp << "//Actors enums, revisa las COMMAS" << "\n";
-        streamCpp << "UENUM(BlueprintType)" << "\n";
-        streamCpp << "enum class EActors : uint8" << "\n";
-        streamCpp << "{ " << "\n";
-        foreach (const Actor actor, actors_)
-        {
-            streamCpp << "    " << actor.getName() << " UMETA(DisplayName = \"" + actor.getName() + "\")," << "\n";
-        }
-        streamCpp << "}; " << "\n";
-        streamCpp << "\n";
-        streamCpp << "//Conversations map" << "\n";
-        streamCpp << "UPROPERTY(EditAnywhere, BlueprintReadOnly, Category = \"Capazo\")" << "\n";
-        streamCpp << "    TMap<FString, int32> ConversationIdsMap;" << "\n";
-        streamCpp << "\n";
-        foreach (const Conversation conversation, conversations_)
-        {
-            QString id = QString::number(conversation.getId());
-            streamCpp << "ConversationIdsMap.Add(\"" + conversation.getTitle() + "\", " + id + ");" << "\n";
-        }
-        streamCpp << "\n";
-        streamCpp << "//Conversations enums, revisa las COMMAS" << "\n";
-        streamCpp << "UENUM(BlueprintType)" << "\n";
-        streamCpp << "enum class EConversations : uint8" << "\n";
-        streamCpp << "{ " << "\n";
+        addConversationsToCpp(streamCpp);
+        saveCppFile.close();
+
+
+
+
 
 
         //CSV
@@ -207,8 +181,7 @@ void Json::write()
         {
             QJsonObject conversationObj;
             conversationObj["id"] = conversation.getId();
-            conversationObj["title"] = conversation.getTitle();
-            streamCpp << "    " << conversation.getTitle() << " UMETA(DisplayName = \"" + conversation.getTitle() + "\")," << "\n";
+            conversationObj["title"] = conversation.getTitle();            
             QJsonArray nodesArray;
             foreach (const Node node, conversation.getNodes())
             {
@@ -253,8 +226,6 @@ void Json::write()
                 }
                 nodesArray.append(nodeObj);
 
-                QString a = node.getOptionText();
-                QString b = node.getDialogueText();
                 streamCsv << conversation.getId() << "\t" << node.getId() << "\t" << "\"" << node.getOptionText() << "\"" << "\t" << "\"" << node.getDialogueText() << "\"" << "\n";
             }
             conversationObj["nodes"] = nodesArray;
@@ -264,11 +235,8 @@ void Json::write()
 
         QJsonDocument gameDoc(gameObj);
         saveJsonFile.write(gameDoc.toJson());
-
-        streamCpp << "}; " << "\n";
         saveJsonFile.close();
         saveCsvFile.close();
-        saveCppFile.close();
     }
     else
     {
@@ -322,4 +290,50 @@ std::vector<Actor> Json::getActors() const
 std::vector<Conversation> Json::getConversations() const
 {
     return conversations_;
+}
+
+void Json::addActorsToCpp(QTextStream& streamCpp) const
+{
+    streamCpp << "//Actors map" << "\n";
+    streamCpp << "UPROPERTY(EditAnywhere, BlueprintReadOnly, Category = \"Capazo\")" << "\n";
+    streamCpp << "    TMap<FString, int32> ActorIdsMap;" << "\n";
+    streamCpp << "\n";
+    foreach (const Actor actor, actors_)
+    {
+        QString id = QString::number(actor.getId());
+        streamCpp << "ActorsMap.Add(\"" + actor.getName() + "\", " + id + ");" << "\n";
+    }
+    streamCpp << "\n";
+    streamCpp << "//Actors enums, revisa las COMMAS" << "\n";
+    streamCpp << "UENUM(BlueprintType)" << "\n";
+    streamCpp << "enum class EActors : uint8" << "\n";
+    streamCpp << "{ " << "\n";
+    foreach (const Actor actor, actors_)
+    {
+        streamCpp << "    " << actor.getName() << " UMETA(DisplayName = \"" + actor.getName() + "\")," << "\n";
+    }
+    streamCpp << "}; " << "\n";
+}
+
+void Json::addConversationsToCpp(QTextStream& streamCpp) const
+{
+    streamCpp << "//Conversations map" << "\n";
+    streamCpp << "UPROPERTY(EditAnywhere, BlueprintReadOnly, Category = \"Capazo\")" << "\n";
+    streamCpp << "    TMap<FString, int32> ConversationIdsMap;" << "\n";
+    streamCpp << "\n";
+    foreach (const Conversation conversation, conversations_)
+    {
+        QString id = QString::number(conversation.getId());
+        streamCpp << "ConversationIdsMap.Add(\"" + conversation.getTitle() + "\", " + id + ");" << "\n";
+    }
+    streamCpp << "\n";
+    streamCpp << "//Conversations enums, revisa las COMMAS" << "\n";
+    streamCpp << "UENUM(BlueprintType)" << "\n";
+    streamCpp << "enum class EConversations : uint8" << "\n";
+    streamCpp << "{ " << "\n";
+    foreach (const Conversation conversation, conversations_)
+    {
+        streamCpp << "    " << conversation.getTitle() << " UMETA(DisplayName = \"" + conversation.getTitle() + "\")," << "\n";
+    }
+    streamCpp << "}; " << "\n";
 }
