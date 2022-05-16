@@ -47,12 +47,11 @@ void Validation::checkDestinyNodes()
         std::vector<Node> nodes_ = valueConversation.getNodes();
         for(const auto& valueNode: nodes_)
         {
-            if (valueNode.getDestinationConvIds().isEmpty() ||
-                valueNode.getDestinationNodeIds().isEmpty())
+            if (valueNode.getDestinationNodeIds().isEmpty())
             {
                 if (!valueNode.getEnd())
                 {
-                    QString error_msg = "Conversation(" + QString::number(valueConversation.getId()) + ") node(" + QString::number(valueNode.getId()) + ") has no destination AND is no end\n";
+                    QString error_msg = "Node(" + QString::number(valueNode.getId()) + ") has no destination AND is no end\n";
                     output_.append(error_msg);
                     errorCounter_++;
                 }
@@ -61,7 +60,7 @@ void Validation::checkDestinyNodes()
             {
                 if (valueNode.getEnd())
                 {
-                    QString error_msg = "Conversation(" + QString::number(valueConversation.getId()) + ") node(" + QString::number(valueNode.getId()) + ") has destination BUT has end checked\n";
+                    QString error_msg = "Node(" + QString::number(valueNode.getId()) + ") has destination BUT has end checked\n";
                     output_.append(error_msg);
                     errorCounter_++;
                 }

@@ -8,13 +8,11 @@ class Node
 public:
     Node(
          const int id,
-         const QString& destinationConvIds,
          const QString& destinationNodeIds,
          const QString& title,
          const int actorId,
          const QString& optionText,
-         const QString& dialogueText,
-         const bool start,
+         const QString& dialogueText,         
          const bool end,
          const bool silence,
          const bool multi,
@@ -27,13 +25,11 @@ public:
     ~Node();
 
     int getId() const;
-    QString getDestinationConvIds() const;
     QString getDestinationNodeIds() const;
     QString getTitle() const;
     int getActorId() const;
     QString getOptionText() const;
-    QString getDialogueText() const;
-    bool getStart() const;
+    QString getDialogueText() const;    
     bool getEnd() const;
     bool getSilence() const;
     bool getMulti() const;
@@ -45,13 +41,11 @@ public:
 
 private:
     int id_;
-    QString destinationConvIds_; //String with conversation Ids. Format X_Y_Z
     QString destinationNodeIds_; //String with node Ids. Format X_Y_Z
     QString title_;
     int actorId_;
     QString optionText_; //The answer text displayed to the player
-    QString dialogueText_; //The actual dialogue text once an option was selected
-    bool start_; //First node of the conversation
+    QString dialogueText_; //The actual dialogue text once an option was selected    
     bool end_; //Conversation end
     bool silence_; //Silence node (no dialogue text, hidden option)
     bool multi_; //The dialogueText has more than one text with the same meaning (for looping)

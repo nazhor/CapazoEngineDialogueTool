@@ -2,13 +2,11 @@
 
 Node::Node(
            const int id,
-           const QString& destinationConvIds,
            const QString& destinationNodeIds,
            const QString& title,
            const int actorId,
            const QString& optionText,
-           const QString& dialogueText,
-           const bool start,
+           const QString& dialogueText,           
            const bool end,
            const bool silence,
            const bool multi,
@@ -20,13 +18,11 @@ Node::Node(
         )
 {
     id_ = id;
-    destinationConvIds_ = destinationConvIds;
     destinationNodeIds_ = destinationNodeIds;
     title_ = title,
     actorId_ = actorId;
     optionText_ = optionText;
-    dialogueText_ = dialogueText;
-    start_ = start;
+    dialogueText_ = dialogueText;    
     end_ = end;
     silence_ = silence;
     multi_ = multi;
@@ -44,11 +40,6 @@ Node::~Node()
 int Node::getId() const
 {
     return id_;
-}
-
-QString Node::getDestinationConvIds() const
-{
-    return destinationConvIds_;
 }
 
 QString Node::getDestinationNodeIds() const
@@ -74,11 +65,6 @@ QString Node::getOptionText() const
 QString Node::getDialogueText() const
 {
     return dialogueText_;
-}
-
-bool Node::getStart() const
-{
-    return start_;
 }
 
 bool Node::getEnd() const

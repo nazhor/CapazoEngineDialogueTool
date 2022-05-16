@@ -1,0 +1,1161 @@
+{
+  "Language": "es-ES",
+  "Title": "Capazo Template",
+  "Version": "1.5.1.0",
+  "Author": "",
+  "Description": "Project for Capazo Engine Dialogue Tool",
+  "UserScript": null,
+  "Assets": {
+    "Actors": [
+      {
+        "Fields": {
+          "Name": "Player",
+          "Pictures": "[]",
+          "Description": "",
+          "IsPlayer": "True"
+        },
+        "ID": 1
+      },
+      {
+        "Fields": {
+          "Name": "Npc01_FOX",
+          "Pictures": "[]",
+          "Description": "",
+          "IsPlayer": "False"
+        },
+        "ID": 2
+      }
+    ],
+    "Items": [
+      {
+        "Fields": {
+          "Name": "New Item",
+          "Pictures": "[]",
+          "Description": ""
+        },
+        "ID": 1
+      }
+    ],
+    "Locations": [
+      {
+        "Fields": {
+          "Name": "New Location",
+          "Pictures": "[]",
+          "Description": ""
+        },
+        "ID": 1
+      }
+    ],
+    "Conversations": [
+      {
+        "DialogNodes": [
+          {
+            "OutgoingLinks": [
+              {
+                "Filename": null,
+                "OriginConvoID": 1,
+                "DestinationConvoID": 1,
+                "OriginDialogID": 0,
+                "DestinationDialogID": 1
+              }
+            ],
+            "ConversationID": 1,
+            "IsRoot": true,
+            "IsGroup": false,
+            "ConditionsString": "",
+            "UserScript": "",
+            "NodeColor": 8,
+            "DelaySimStatus": false,
+            "FalseConditionAction": 0,
+            "ConditionPriority": 3,
+            "Fields": {
+              "Title": "START",
+              "Pictures": "[]",
+              "Description": "",
+              "Actor": "1",
+              "Conversant": "2",
+              "Menu Text": "",
+              "Dialogue Text": "",
+              "Parenthetical": "",
+              "Audio Files": "[]",
+              "Video File": "",
+              "Animation Files": "[]"
+            },
+            "ID": 0
+          },
+          {
+            "OutgoingLinks": [
+              {
+                "Filename": null,
+                "OriginConvoID": 1,
+                "DestinationConvoID": 1,
+                "OriginDialogID": 1,
+                "DestinationDialogID": 2
+              },
+              {
+                "Filename": null,
+                "OriginConvoID": 1,
+                "DestinationConvoID": 1,
+                "OriginDialogID": 1,
+                "DestinationDialogID": 3
+              },
+              {
+                "Filename": null,
+                "OriginConvoID": 1,
+                "DestinationConvoID": 1,
+                "OriginDialogID": 1,
+                "DestinationDialogID": 9
+              },
+              {
+                "Filename": null,
+                "OriginConvoID": 1,
+                "DestinationConvoID": 1,
+                "OriginDialogID": 1,
+                "DestinationDialogID": 4
+              }
+            ],
+            "ConversationID": 1,
+            "IsRoot": false,
+            "IsGroup": false,
+            "ConditionsString": "",
+            "UserScript": "",
+            "NodeColor": 6,
+            "DelaySimStatus": false,
+            "FalseConditionAction": 0,
+            "ConditionPriority": 3,
+            "Fields": {
+              "Title": "New Dialogue",
+              "Pictures": "[]",
+              "Description": "",
+              "Actor": "2",
+              "Conversant": "1",
+              "Menu Text": "",
+              "Dialogue Text": "Un kebab.",
+              "Parenthetical": "",
+              "Audio Files": "[]",
+              "Video File": "",
+              "End": "False",
+              "Silence": "False",
+              "Multi": "False",
+              "Change": "0",
+              "Int01Cont": "False",
+              "Int02Nexus": "False",
+              "Int03Node": "False",
+              "IntNpc": "False"
+            },
+            "ID": 1
+          },
+          {
+            "OutgoingLinks": [
+              {
+                "Filename": null,
+                "OriginConvoID": 1,
+                "DestinationConvoID": 1,
+                "OriginDialogID": 2,
+                "DestinationDialogID": 5
+              }
+            ],
+            "ConversationID": 1,
+            "IsRoot": false,
+            "IsGroup": false,
+            "ConditionsString": "",
+            "UserScript": "",
+            "NodeColor": 3,
+            "DelaySimStatus": false,
+            "FalseConditionAction": 0,
+            "ConditionPriority": 3,
+            "Fields": {
+              "Title": "New Dialogue",
+              "Pictures": "[]",
+              "Description": "",
+              "Actor": "1",
+              "Conversant": "2",
+              "Menu Text": "¿Qué?",
+              "Dialogue Text": "¿Qué dices? Se te va la pinza ya.",
+              "Parenthetical": "",
+              "Audio Files": "[]",
+              "Video File": "",
+              "End": "False",
+              "Silence": "False",
+              "Multi": "False",
+              "Change": "0",
+              "Int01Cont": "False",
+              "Int02Nexus": "False",
+              "Int03Node": "False",
+              "IntNpc": "False"
+            },
+            "ID": 2
+          },
+          {
+            "OutgoingLinks": [
+              {
+                "Filename": null,
+                "OriginConvoID": 1,
+                "DestinationConvoID": 1,
+                "OriginDialogID": 3,
+                "DestinationDialogID": 5
+              }
+            ],
+            "ConversationID": 1,
+            "IsRoot": false,
+            "IsGroup": false,
+            "ConditionsString": "",
+            "UserScript": "",
+            "NodeColor": 3,
+            "DelaySimStatus": false,
+            "FalseConditionAction": 0,
+            "ConditionPriority": 3,
+            "Fields": {
+              "Title": "New Dialogue",
+              "Pictures": "[]",
+              "Description": "",
+              "Actor": "1",
+              "Conversant": "2",
+              "Menu Text": "No estás mejor.",
+              "Dialogue Text": "Pensaba que estabas mejor, pero ya veo que todavía no se te ha bajado el ciego.",
+              "Parenthetical": "",
+              "Audio Files": "[]",
+              "Video File": "",
+              "End": "False",
+              "Silence": "False",
+              "Multi": "False",
+              "Change": "0",
+              "Int01Cont": "False",
+              "Int02Nexus": "False",
+              "Int03Node": "False",
+              "IntNpc": "False"
+            },
+            "ID": 3
+          },
+          {
+            "OutgoingLinks": [
+              {
+                "Filename": null,
+                "OriginConvoID": 1,
+                "DestinationConvoID": 1,
+                "OriginDialogID": 4,
+                "DestinationDialogID": 5
+              }
+            ],
+            "ConversationID": 1,
+            "IsRoot": false,
+            "IsGroup": false,
+            "ConditionsString": "",
+            "UserScript": "",
+            "NodeColor": 2,
+            "DelaySimStatus": false,
+            "FalseConditionAction": 0,
+            "ConditionPriority": 3,
+            "Fields": {
+              "Title": "New Dialogue",
+              "Pictures": "[]",
+              "Description": "",
+              "Actor": "1",
+              "Conversant": "2",
+              "Menu Text": "...",
+              "Dialogue Text": "...",
+              "Parenthetical": "",
+              "Audio Files": "[]",
+              "Video File": "",
+              "End": "False",
+              "Silence": "True",
+              "Multi": "False",
+              "Change": "0",
+              "Int01Cont": "False",
+              "Int02Nexus": "False",
+              "Int03Node": "False",
+              "IntNpc": "False"
+            },
+            "ID": 4
+          },
+          {
+            "OutgoingLinks": [
+              {
+                "Filename": null,
+                "OriginConvoID": 1,
+                "DestinationConvoID": 1,
+                "OriginDialogID": 5,
+                "DestinationDialogID": 6
+              },
+              {
+                "Filename": null,
+                "OriginConvoID": 1,
+                "DestinationConvoID": 1,
+                "OriginDialogID": 5,
+                "DestinationDialogID": 7
+              },
+              {
+                "Filename": null,
+                "OriginConvoID": 1,
+                "DestinationConvoID": 1,
+                "OriginDialogID": 5,
+                "DestinationDialogID": 8
+              }
+            ],
+            "ConversationID": 1,
+            "IsRoot": false,
+            "IsGroup": false,
+            "ConditionsString": "",
+            "UserScript": "",
+            "NodeColor": 6,
+            "DelaySimStatus": false,
+            "FalseConditionAction": 0,
+            "ConditionPriority": 3,
+            "Fields": {
+              "Title": "New Dialogue",
+              "Pictures": "[]",
+              "Description": "",
+              "Actor": "2",
+              "Conversant": "1",
+              "Menu Text": "",
+              "Dialogue Text": "¡Un kebab! Un puto kebab, co. De ternera y pollo, no hay que hacer corto. Con su salsica y su cantidad justa de picante, envuelto en papel albal y bien caliente, recién sacado de la plancha. Es lo que necesito. Y tú también, aunque aun no lo sabes. Un kebab. Echo de menos los kebab.",
+              "Parenthetical": "",
+              "Audio Files": "[]",
+              "Video File": "",
+              "End": "False",
+              "Silence": "False",
+              "Multi": "False",
+              "Change": "0",
+              "Int01Cont": "False",
+              "Int02Nexus": "False",
+              "Int03Node": "False",
+              "IntNpc": "False"
+            },
+            "ID": 5
+          },
+          {
+            "OutgoingLinks": [
+              {
+                "Filename": null,
+                "OriginConvoID": 1,
+                "DestinationConvoID": 1,
+                "OriginDialogID": 6,
+                "DestinationDialogID": 10
+              }
+            ],
+            "ConversationID": 1,
+            "IsRoot": false,
+            "IsGroup": false,
+            "ConditionsString": "",
+            "UserScript": "",
+            "NodeColor": 3,
+            "DelaySimStatus": false,
+            "FalseConditionAction": 0,
+            "ConditionPriority": 3,
+            "Fields": {
+              "Title": "New Dialogue",
+              "Pictures": "[]",
+              "Description": "",
+              "Actor": "1",
+              "Conversant": "2",
+              "Menu Text": "Jodo que sí.",
+              "Dialogue Text": "Jodo que sí, un kebab siempre viene bien, y a estas horas ya flipas. Entra mejor que el agua en domingo, las cosas como son.",
+              "Parenthetical": "",
+              "Audio Files": "[]",
+              "Video File": "",
+              "End": "False",
+              "Silence": "False",
+              "Multi": "False",
+              "Change": "0",
+              "Int01Cont": "False",
+              "Int02Nexus": "False",
+              "Int03Node": "False",
+              "IntNpc": "False"
+            },
+            "ID": 6
+          },
+          {
+            "OutgoingLinks": [
+              {
+                "Filename": null,
+                "OriginConvoID": 1,
+                "DestinationConvoID": 1,
+                "OriginDialogID": 7,
+                "DestinationDialogID": 12
+              }
+            ],
+            "ConversationID": 1,
+            "IsRoot": false,
+            "IsGroup": false,
+            "ConditionsString": "",
+            "UserScript": "",
+            "NodeColor": 3,
+            "DelaySimStatus": false,
+            "FalseConditionAction": 0,
+            "ConditionPriority": 3,
+            "Fields": {
+              "Title": "New Dialogue",
+              "Pictures": "[]",
+              "Description": "",
+              "Actor": "1",
+              "Conversant": "2",
+              "Menu Text": "Mejor agua, ¿no?",
+              "Dialogue Text": "Pero cómo vas a echarlos de menos si nos comimos uno el sábado pasado sin ir más lejos. Anda, déjate de hostias y mejor te traigo un botellín de agua. Digo, vamos.",
+              "Parenthetical": "",
+              "Audio Files": "[]",
+              "Video File": "",
+              "End": "False",
+              "Silence": "False",
+              "Multi": "False",
+              "Change": "0",
+              "Int01Cont": "False",
+              "Int02Nexus": "False",
+              "Int03Node": "False",
+              "IntNpc": "False"
+            },
+            "ID": 7
+          },
+          {
+            "OutgoingLinks": [
+              {
+                "Filename": null,
+                "OriginConvoID": 1,
+                "DestinationConvoID": 1,
+                "OriginDialogID": 8,
+                "DestinationDialogID": 17
+              }
+            ],
+            "ConversationID": 1,
+            "IsRoot": false,
+            "IsGroup": false,
+            "ConditionsString": "",
+            "UserScript": "",
+            "NodeColor": 2,
+            "DelaySimStatus": false,
+            "FalseConditionAction": 0,
+            "ConditionPriority": 3,
+            "Fields": {
+              "Title": "New Dialogue",
+              "Pictures": "[]",
+              "Description": "",
+              "Actor": "1",
+              "Conversant": "2",
+              "Menu Text": "...",
+              "Dialogue Text": "...",
+              "Parenthetical": "",
+              "Audio Files": "[]",
+              "Video File": "",
+              "End": "False",
+              "Silence": "True",
+              "Multi": "False",
+              "Change": "0",
+              "Int01Cont": "False",
+              "Int02Nexus": "False",
+              "Int03Node": "False",
+              "IntNpc": "False"
+            },
+            "ID": 8
+          },
+          {
+            "OutgoingLinks": [
+              {
+                "Filename": null,
+                "OriginConvoID": 1,
+                "DestinationConvoID": 1,
+                "OriginDialogID": 9,
+                "DestinationDialogID": 5
+              }
+            ],
+            "ConversationID": 1,
+            "IsRoot": false,
+            "IsGroup": false,
+            "ConditionsString": "",
+            "UserScript": "",
+            "NodeColor": 3,
+            "DelaySimStatus": false,
+            "FalseConditionAction": 0,
+            "ConditionPriority": 3,
+            "Fields": {
+              "Title": "New Dialogue",
+              "Pictures": "[]",
+              "Description": "",
+              "Actor": "1",
+              "Conversant": "2",
+              "Menu Text": "Un kebab.",
+              "Dialogue Text": "Un kebab.",
+              "Parenthetical": "",
+              "Audio Files": "[]",
+              "Video File": "",
+              "End": "False",
+              "Silence": "False",
+              "Multi": "False",
+              "Change": "0",
+              "Int01Cont": "False",
+              "Int02Nexus": "False",
+              "Int03Node": "False",
+              "IntNpc": "False"
+            },
+            "ID": 9
+          },
+          {
+            "OutgoingLinks": [
+              {
+                "Filename": null,
+                "OriginConvoID": 1,
+                "DestinationConvoID": 1,
+                "OriginDialogID": 10,
+                "DestinationDialogID": 35
+              },
+              {
+                "Filename": null,
+                "OriginConvoID": 1,
+                "DestinationConvoID": 1,
+                "OriginDialogID": 10,
+                "DestinationDialogID": 36
+              },
+              {
+                "Filename": null,
+                "OriginConvoID": 1,
+                "DestinationConvoID": 1,
+                "OriginDialogID": 10,
+                "DestinationDialogID": 37
+              }
+            ],
+            "ConversationID": 1,
+            "IsRoot": false,
+            "IsGroup": false,
+            "ConditionsString": "",
+            "UserScript": "",
+            "NodeColor": 6,
+            "DelaySimStatus": false,
+            "FalseConditionAction": 0,
+            "ConditionPriority": 3,
+            "Fields": {
+              "Title": "New Dialogue",
+              "Pictures": "[]",
+              "Description": "",
+              "Actor": "2",
+              "Conversant": "1",
+              "Menu Text": "",
+              "Dialogue Text": "Tal cual... por eso digo. Felicidad enrollada co. Ni porros ni porras, el kebab es, qué te voy a decir yo, la auténtica salud.",
+              "Parenthetical": "",
+              "Audio Files": "[]",
+              "Video File": "",
+              "End": "False",
+              "Silence": "False",
+              "Multi": "False",
+              "Change": "0",
+              "Int01Cont": "False",
+              "Int02Nexus": "False",
+              "Int03Node": "False",
+              "IntNpc": "False"
+            },
+            "ID": 10
+          },
+          {
+            "OutgoingLinks": [
+              {
+                "Filename": null,
+                "OriginConvoID": 1,
+                "DestinationConvoID": 1,
+                "OriginDialogID": 12,
+                "DestinationDialogID": 13
+              },
+              {
+                "Filename": null,
+                "OriginConvoID": 1,
+                "DestinationConvoID": 1,
+                "OriginDialogID": 12,
+                "DestinationDialogID": 15
+              },
+              {
+                "Filename": null,
+                "OriginConvoID": 1,
+                "DestinationConvoID": 1,
+                "OriginDialogID": 12,
+                "DestinationDialogID": 14
+              }
+            ],
+            "ConversationID": 1,
+            "IsRoot": false,
+            "IsGroup": false,
+            "ConditionsString": "",
+            "UserScript": "",
+            "NodeColor": 6,
+            "DelaySimStatus": false,
+            "FalseConditionAction": 0,
+            "ConditionPriority": 3,
+            "Fields": {
+              "Title": "New Dialogue",
+              "Pictures": "[]",
+              "Description": "",
+              "Actor": "2",
+              "Conversant": "1",
+              "Menu Text": "",
+              "Dialogue Text": "¿Agua? Qué dices loco, si ya he bebido suficiente, que en este garito ponen un huevo de hielo en las copas. Además, a ver si me van a ver por ahí con el botellín en la mano y se van a pensar que soy [[rat]] y voy buscando medicina, deja deja.",
+              "Parenthetical": "",
+              "Audio Files": "[]",
+              "Video File": "",
+              "End": "False",
+              "Silence": "False",
+              "Multi": "False",
+              "Change": "0",
+              "Int01Cont": "False",
+              "Int02Nexus": "False",
+              "Int03Node": "False",
+              "IntNpc": "False"
+            },
+            "ID": 12
+          },
+          {
+            "OutgoingLinks": [
+              {
+                "Filename": null,
+                "OriginConvoID": 1,
+                "DestinationConvoID": 1,
+                "OriginDialogID": 13,
+                "DestinationDialogID": 16
+              }
+            ],
+            "ConversationID": 1,
+            "IsRoot": false,
+            "IsGroup": false,
+            "ConditionsString": "",
+            "UserScript": "",
+            "NodeColor": 3,
+            "DelaySimStatus": false,
+            "FalseConditionAction": 0,
+            "ConditionPriority": 3,
+            "Fields": {
+              "Title": "New Dialogue",
+              "Pictures": "[]",
+              "Description": "",
+              "Actor": "1",
+              "Conversant": "2",
+              "Menu Text": "Te veo mejor.",
+              "Dialogue Text": "Ya veo que vas mejor. Al menos ahora te entiendo al hablar, ya casi no te trabas, es un progreso. ",
+              "Parenthetical": "",
+              "Audio Files": "[]",
+              "Video File": "",
+              "End": "False",
+              "Silence": "False",
+              "Multi": "False",
+              "Change": "0",
+              "Int01Cont": "False",
+              "Int02Nexus": "False",
+              "Int03Node": "False",
+              "IntNpc": "False"
+            },
+            "ID": 13
+          },
+          {
+            "OutgoingLinks": [
+              {
+                "Filename": null,
+                "OriginConvoID": 1,
+                "DestinationConvoID": 1,
+                "OriginDialogID": 14,
+                "DestinationDialogID": 18
+              }
+            ],
+            "ConversationID": 1,
+            "IsRoot": false,
+            "IsGroup": false,
+            "ConditionsString": "",
+            "UserScript": "",
+            "NodeColor": 2,
+            "DelaySimStatus": false,
+            "FalseConditionAction": 0,
+            "ConditionPriority": 3,
+            "Fields": {
+              "Title": "New Dialogue",
+              "Pictures": "[]",
+              "Description": "",
+              "Actor": "1",
+              "Conversant": "2",
+              "Menu Text": "...",
+              "Dialogue Text": "...",
+              "Parenthetical": "",
+              "Audio Files": "[]",
+              "Video File": "",
+              "End": "False",
+              "Silence": "True",
+              "Multi": "False",
+              "Change": "0",
+              "Int01Cont": "False",
+              "Int02Nexus": "False",
+              "Int03Node": "False",
+              "IntNpc": "False"
+            },
+            "ID": 14
+          },
+          {
+            "OutgoingLinks": [
+              {
+                "Filename": null,
+                "OriginConvoID": 1,
+                "DestinationConvoID": 1,
+                "OriginDialogID": 15,
+                "DestinationDialogID": 19
+              }
+            ],
+            "ConversationID": 1,
+            "IsRoot": false,
+            "IsGroup": false,
+            "ConditionsString": "",
+            "UserScript": "",
+            "NodeColor": 3,
+            "DelaySimStatus": false,
+            "FalseConditionAction": 0,
+            "ConditionPriority": 3,
+            "Fields": {
+              "Title": "New Dialogue",
+              "Pictures": "[]",
+              "Description": "",
+              "Actor": "1",
+              "Conversant": "2",
+              "Menu Text": "hambre?",
+              "Dialogue Text": "Normal que tengas hambre también te digo, lo has echado todo. Menudo aspersor, ya te vale.",
+              "Parenthetical": "",
+              "Audio Files": "[]",
+              "Video File": "",
+              "End": "False",
+              "Silence": "False",
+              "Multi": "False",
+              "Change": "0",
+              "Int01Cont": "False",
+              "Int02Nexus": "False",
+              "Int03Node": "False",
+              "IntNpc": "False"
+            },
+            "ID": 15
+          },
+          {
+            "OutgoingLinks": [],
+            "ConversationID": 1,
+            "IsRoot": false,
+            "IsGroup": false,
+            "ConditionsString": "",
+            "UserScript": "",
+            "NodeColor": 6,
+            "DelaySimStatus": false,
+            "FalseConditionAction": 0,
+            "ConditionPriority": 3,
+            "Fields": {
+              "Title": "New Dialogue",
+              "Pictures": "[]",
+              "Description": "",
+              "Actor": "2",
+              "Conversant": "1",
+              "Menu Text": "",
+              "Dialogue Text": "Que te jodan. ¿Eso lo has entendido, o lo vocalizo mejor?",
+              "Parenthetical": "",
+              "Audio Files": "[]",
+              "Video File": "",
+              "End": "True",
+              "Silence": "False",
+              "Multi": "False",
+              "Change": "0",
+              "Int01Cont": "False",
+              "Int02Nexus": "False",
+              "Int03Node": "False",
+              "IntNpc": "False"
+            },
+            "ID": 16
+          },
+          {
+            "OutgoingLinks": [
+              {
+                "Filename": null,
+                "OriginConvoID": 1,
+                "DestinationConvoID": 1,
+                "OriginDialogID": 17,
+                "DestinationDialogID": 13
+              },
+              {
+                "Filename": null,
+                "OriginConvoID": 1,
+                "DestinationConvoID": 1,
+                "OriginDialogID": 17,
+                "DestinationDialogID": 15
+              },
+              {
+                "Filename": null,
+                "OriginConvoID": 1,
+                "DestinationConvoID": 1,
+                "OriginDialogID": 17,
+                "DestinationDialogID": 26
+              },
+              {
+                "Filename": null,
+                "OriginConvoID": 1,
+                "DestinationConvoID": 1,
+                "OriginDialogID": 17,
+                "DestinationDialogID": 14
+              }
+            ],
+            "ConversationID": 1,
+            "IsRoot": false,
+            "IsGroup": false,
+            "ConditionsString": "",
+            "UserScript": "",
+            "NodeColor": 6,
+            "DelaySimStatus": false,
+            "FalseConditionAction": 0,
+            "ConditionPriority": 3,
+            "Fields": {
+              "Title": "New Dialogue",
+              "Pictures": "[]",
+              "Description": "",
+              "Actor": "2",
+              "Conversant": "1",
+              "Menu Text": "",
+              "Dialogue Text": "No quiero asustarte, pero es posible que vaya peor de lo que habíamos calculado porque no oigo nada. Eso, o no has dicho nada, claro, en ese caso todo en orden. Bueno, todo menos mi estómago. ¿Has dicho algo? Di algo. O mejor, haz algo. Va, hazlo por mí. No puedes decirle que no a un pobre desgraciado que está tirado en el baño de un garito porque claramente le han dado garrafón, ¿dónde queda la simpatía? Simpatía... no, simpatía no. ¿Epifanía? Bueno, da igual, ya me has entendido.",
+              "Parenthetical": "",
+              "Audio Files": "[]",
+              "Video File": "",
+              "End": "False",
+              "Silence": "False",
+              "Multi": "False",
+              "Change": "0",
+              "Int01Cont": "False",
+              "Int02Nexus": "False",
+              "Int03Node": "False",
+              "IntNpc": "False"
+            },
+            "ID": 17
+          },
+          {
+            "OutgoingLinks": [],
+            "ConversationID": 1,
+            "IsRoot": false,
+            "IsGroup": false,
+            "ConditionsString": "",
+            "UserScript": "",
+            "NodeColor": 6,
+            "DelaySimStatus": false,
+            "FalseConditionAction": 0,
+            "ConditionPriority": 3,
+            "Fields": {
+              "Title": "New Dialogue",
+              "Pictures": "[]",
+              "Description": "",
+              "Actor": "2",
+              "Conversant": "1",
+              "Menu Text": "",
+              "Dialogue Text": "Tú mismo, si yo era por ti, para que no te aburrieras ya que te has empeñado en acompañarme. Yo tengo aquí tajo con lo mío.",
+              "Parenthetical": "",
+              "Audio Files": "[]",
+              "Video File": "",
+              "End": "True",
+              "Silence": "False",
+              "Multi": "False",
+              "Change": "0",
+              "Int01Cont": "False",
+              "Int02Nexus": "False",
+              "Int03Node": "False",
+              "IntNpc": "False"
+            },
+            "ID": 18
+          },
+          {
+            "OutgoingLinks": [],
+            "ConversationID": 1,
+            "IsRoot": false,
+            "IsGroup": false,
+            "ConditionsString": "",
+            "UserScript": "",
+            "NodeColor": 6,
+            "DelaySimStatus": false,
+            "FalseConditionAction": 0,
+            "ConditionPriority": 3,
+            "Fields": {
+              "Title": "New Dialogue",
+              "Pictures": "[]",
+              "Description": "",
+              "Actor": "2",
+              "Conversant": "1",
+              "Menu Text": "",
+              "Dialogue Text": "Hay que vaciar el depósito para poder volver a llenar. Ya sabes, como en los banquetes romanos. ",
+              "Parenthetical": "",
+              "Audio Files": "[]",
+              "Video File": "",
+              "End": "True",
+              "Silence": "False",
+              "Multi": "False",
+              "Change": "0",
+              "Int01Cont": "False",
+              "Int02Nexus": "False",
+              "Int03Node": "False",
+              "IntNpc": "False"
+            },
+            "ID": 19
+          },
+          {
+            "OutgoingLinks": [
+              {
+                "Filename": null,
+                "OriginConvoID": 1,
+                "DestinationConvoID": 1,
+                "OriginDialogID": 26,
+                "DestinationDialogID": 27
+              }
+            ],
+            "ConversationID": 1,
+            "IsRoot": false,
+            "IsGroup": false,
+            "ConditionsString": "",
+            "UserScript": "",
+            "NodeColor": 3,
+            "DelaySimStatus": false,
+            "FalseConditionAction": 0,
+            "ConditionPriority": 3,
+            "Fields": {
+              "Title": "New Dialogue",
+              "Pictures": "[]",
+              "Description": "",
+              "Actor": "1",
+              "Conversant": "2",
+              "Menu Text": "¿El qué?",
+              "Dialogue Text": "Qué quieres que haga.",
+              "Parenthetical": "",
+              "Audio Files": "[]",
+              "Video File": "",
+              "End": "False",
+              "Silence": "False",
+              "Multi": "False",
+              "Change": "0",
+              "Int01Cont": "False",
+              "Int02Nexus": "False",
+              "Int03Node": "False",
+              "IntNpc": "False"
+            },
+            "ID": 26
+          },
+          {
+            "OutgoingLinks": [],
+            "ConversationID": 1,
+            "IsRoot": false,
+            "IsGroup": false,
+            "ConditionsString": "",
+            "UserScript": "",
+            "NodeColor": 6,
+            "DelaySimStatus": false,
+            "FalseConditionAction": 0,
+            "ConditionPriority": 3,
+            "Fields": {
+              "Title": "New Dialogue",
+              "Pictures": "[]",
+              "Description": "",
+              "Actor": "2",
+              "Conversant": "1",
+              "Menu Text": "",
+              "Dialogue Text": "El qué va a ser. El kebab. Traérmelo.",
+              "Parenthetical": "",
+              "Audio Files": "[]",
+              "Video File": "",
+              "End": "True",
+              "Silence": "False",
+              "Multi": "False",
+              "Change": "0",
+              "Int01Cont": "False",
+              "Int02Nexus": "False",
+              "Int03Node": "False",
+              "IntNpc": "False"
+            },
+            "ID": 27
+          },
+          {
+            "OutgoingLinks": [
+              {
+                "Filename": null,
+                "OriginConvoID": 1,
+                "DestinationConvoID": 1,
+                "OriginDialogID": 35,
+                "DestinationDialogID": 38
+              }
+            ],
+            "ConversationID": 1,
+            "IsRoot": false,
+            "IsGroup": false,
+            "ConditionsString": "",
+            "UserScript": "",
+            "NodeColor": 3,
+            "DelaySimStatus": false,
+            "FalseConditionAction": 0,
+            "ConditionPriority": 3,
+            "Fields": {
+              "Title": "New Dialogue",
+              "Pictures": "[]",
+              "Description": "",
+              "Actor": "1",
+              "Conversant": "2",
+              "Menu Text": "Kebab o Durum.",
+              "Dialogue Text": "Espera, espera, ¿enrollado? Vale, a ver, supongamos que voy al kebab Amigo de aquí al lado. Qué te traigo, kebab o durum. ",
+              "Parenthetical": "",
+              "Audio Files": "[]",
+              "Video File": "",
+              "End": "False",
+              "Silence": "False",
+              "Multi": "False",
+              "Change": "0",
+              "Int01Cont": "False",
+              "Int02Nexus": "False",
+              "Int03Node": "False",
+              "IntNpc": "False"
+            },
+            "ID": 35
+          },
+          {
+            "OutgoingLinks": [
+              {
+                "Filename": null,
+                "OriginConvoID": 1,
+                "DestinationConvoID": 1,
+                "OriginDialogID": 36,
+                "DestinationDialogID": 38
+              }
+            ],
+            "ConversationID": 1,
+            "IsRoot": false,
+            "IsGroup": false,
+            "ConditionsString": "",
+            "UserScript": "",
+            "NodeColor": 3,
+            "DelaySimStatus": false,
+            "FalseConditionAction": 0,
+            "ConditionPriority": 3,
+            "Fields": {
+              "Title": "New Dialogue",
+              "Pictures": "[]",
+              "Description": "",
+              "Actor": "1",
+              "Conversant": "2",
+              "Menu Text": "A tope con los durum",
+              "Dialogue Text": "Yo también prefiero un durum. Bien enrollado, que es más fácil de comer. Con los otros me pongo hecho una mierda.",
+              "Parenthetical": "",
+              "Audio Files": "[]",
+              "Video File": "",
+              "End": "False",
+              "Silence": "False",
+              "Multi": "False",
+              "Change": "0",
+              "Int01Cont": "False",
+              "Int02Nexus": "False",
+              "Int03Node": "False",
+              "IntNpc": "False"
+            },
+            "ID": 36
+          },
+          {
+            "OutgoingLinks": [
+              {
+                "Filename": null,
+                "OriginConvoID": 1,
+                "DestinationConvoID": 1,
+                "OriginDialogID": 37,
+                "DestinationDialogID": 68
+              }
+            ],
+            "ConversationID": 1,
+            "IsRoot": false,
+            "IsGroup": false,
+            "ConditionsString": "",
+            "UserScript": "",
+            "NodeColor": 2,
+            "DelaySimStatus": false,
+            "FalseConditionAction": 0,
+            "ConditionPriority": 3,
+            "Fields": {
+              "Title": "New Dialogue",
+              "Pictures": "[]",
+              "Description": "",
+              "Actor": "1",
+              "Conversant": "2",
+              "Menu Text": "...",
+              "Dialogue Text": "...",
+              "Parenthetical": "",
+              "Audio Files": "[]",
+              "Video File": "",
+              "End": "False",
+              "Silence": "True",
+              "Multi": "False",
+              "Change": "0",
+              "Int01Cont": "False",
+              "Int02Nexus": "False",
+              "Int03Node": "False",
+              "IntNpc": "False"
+            },
+            "ID": 37
+          },
+          {
+            "OutgoingLinks": [],
+            "ConversationID": 1,
+            "IsRoot": false,
+            "IsGroup": false,
+            "ConditionsString": "",
+            "UserScript": "",
+            "NodeColor": 6,
+            "DelaySimStatus": false,
+            "FalseConditionAction": 0,
+            "ConditionPriority": 3,
+            "Fields": {
+              "Title": "New Dialogue",
+              "Pictures": "[]",
+              "Description": "",
+              "Actor": "2",
+              "Conversant": "1",
+              "Menu Text": "",
+              "Dialogue Text": "¿Cómo que durum? Un kebab, quiero un kebab. ¿Hay más opciones?",
+              "Parenthetical": "",
+              "Audio Files": "[]",
+              "Video File": "",
+              "End": "True",
+              "Silence": "False",
+              "Multi": "False",
+              "Change": "0",
+              "Int01Cont": "False",
+              "Int02Nexus": "False",
+              "Int03Node": "False",
+              "IntNpc": "False"
+            },
+            "ID": 38
+          },
+          {
+            "OutgoingLinks": [],
+            "ConversationID": 1,
+            "IsRoot": false,
+            "IsGroup": false,
+            "ConditionsString": "",
+            "UserScript": "",
+            "NodeColor": 6,
+            "DelaySimStatus": false,
+            "FalseConditionAction": 0,
+            "ConditionPriority": 3,
+            "Fields": {
+              "Title": "New Dialogue",
+              "Pictures": "[]",
+              "Description": "",
+              "Actor": "2",
+              "Conversant": "1",
+              "Menu Text": "",
+              "Dialogue Text": " ¡La auténtica salud!",
+              "Parenthetical": "",
+              "Audio Files": "[]",
+              "Video File": "",
+              "End": "True",
+              "Silence": "False",
+              "Multi": "False",
+              "Change": "0",
+              "Int01Cont": "False",
+              "Int02Nexus": "False",
+              "Int03Node": "False",
+              "IntNpc": "False"
+            },
+            "ID": 68
+          }
+        ],
+        "NodeColor": 0,
+        "Fields": {
+          "Title": "S01E01_1_Kebab",
+          "Pictures": "[]",
+          "Description": "Primera conversación del capítulo que gira en torno a los kebabs y el consumo de alcohol.",
+          "Actor": "1",
+          "Conversant": "2"
+        },
+        "ID": 1
+      }
+    ],
+    "UserVariables": []
+  }
+}
