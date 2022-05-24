@@ -137,20 +137,22 @@ void Json::write()
     }
     QFile saveJsonFile(gameReadyFolder_ + "/" + fileName_ + ".json");
     QFile saveCsvFile(gameReadyFolder_ + "/" + fileName_ + ".csv");
-    QFile saveCppFile(gameReadyFolder_ + "/" + fileName_ + ".cpp");
+    QFile saveTxtFile(gameReadyFolder_ + "/" + fileName_ + "_ACTORES.txt");
 
-    if (saveJsonFile.open(QIODevice::WriteOnly) && saveCsvFile.open(QIODevice::WriteOnly) && saveCppFile.open(QIODevice::WriteOnly))
+    if (saveJsonFile.open(QIODevice::WriteOnly) && saveCsvFile.open(QIODevice::WriteOnly) && saveTxtFile.open(QIODevice::WriteOnly))
     {
         QJsonObject gameObj;
 
         //Create the cpp with actors
-        QTextStream streamCpp(&saveCppFile);
-        addActorsToCpp(streamCpp);        
-        saveCppFile.close();
+        QTextStream streamTxt(&saveTxtFile);
+        addActorsToTxt(streamTxt);
+        saveTxtFile.close();
 
         //CSV
         QTextStream streamCsv(&saveCsvFile);
-        streamCsv << "nodeId" << "\t" << "optionText_ES" << "\t" << "dialogueText_ES" << "\t" << "optionText_EN" << "\t" << "dialogueText_EN" << "\n";
+        streamCsv.setCodec("UTF-8");
+        const QString SEPARATOR = ";";
+        streamCsv << "nodeId" << SEPARATOR << "optionText_ES" << SEPARATOR << "dialogueText_ES" << SEPARATOR << "optionText_EN" << SEPARATOR << "dialogueText_EN" << "\n";
 
         foreach (const Conversation conversation, conversations_)
         {            
@@ -193,7 +195,9 @@ void Json::write()
                     nodeObj["intNpc"] = node.getIntNpc();
                 }
                 nodesArray.append(nodeObj);
-                streamCsv << node.getId() << "\t" << "\"" << node.getOptionText() << "\"" << "\t" << "\"" << node.getDialogueText() << "\"" << "\n";
+//                streamCsv << node.getId() << SEPARATOR << "\"" << node.getOptionText() << "\"" << SEPARATOR << "\"" << node.getDialogueText() << "\"" << SEPARATOR << "\"" << "\"" << SEPARATOR << "\"" << "\"" << SEPARATOR << "\n";
+                streamCsv << node.getId() << SEPARATOR << node.getOptionText() << SEPARATOR << node.getDialogueText() << SEPARATOR << "\"" << "\"" << SEPARATOR << "\"" << "\"" << SEPARATOR << "\n";
+//                streamCsv << node.getId() << SEPARATOR << node.getOptionText() << SEPARATOR << node.getDialogueText() << "\n";
             }
             gameObj["nodes"] = nodesArray;
         }
@@ -255,25 +259,14 @@ std::vector<Conversation> Json::getConversations() const
     return conversations_;
 }
 
-void Json::addActorsToCpp(QTextStream& streamCpp) const
+void Json::addActorsToTxt(QTextStream& streamTxt) const
 {
-    streamCpp << "//Actors map" << "\n";
-    streamCpp << "UPROPERTY(EditAnywhere, BlueprintReadOnly, Category = \"Capazo\")" << "\n";
-    streamCpp << "    TMap<FString, int32> ActorIdsMap;" << "\n";
-    streamCpp << "\n";
+    streamTxt << "//Actores en conversación" << "\n";
+    streamTxt << "\n";
     foreach (const Actor actor, actors_)
     {
         QString id = QString::number(actor.getId());
-        streamCpp << "ActorsMap.Add(\"" + actor.getName() + "\", " + id + ");" << "\n";
+        streamTxt << "Name: " + actor.getName() + ", Id: " + id + ";" << "\n";
     }
-    streamCpp << "\n";
-    streamCpp << "//Actors enums, revisa las COMMAS" << "\n";
-    streamCpp << "UENUM(BlueprintType)" << "\n";
-    streamCpp << "enum class EActors : uint8" << "\n";
-    streamCpp << "{ " << "\n";
-    foreach (const Actor actor, actors_)
-    {
-        streamCpp << "    " << actor.getName() << " UMETA(DisplayName = \"" + actor.getName() + "\")," << "\n";
-    }
-    streamCpp << "}; " << "\n";
+    streamTxt << "\n";
 }
